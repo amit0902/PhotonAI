@@ -29,7 +29,7 @@ ReportLab
 
 Clone repo
 
-git clone https://github.com/yourusername/solar-ai-advisor.git
+git clone https://github.com/amit0902/solar-ai-advisor.git
 
 Install dependencies
 
