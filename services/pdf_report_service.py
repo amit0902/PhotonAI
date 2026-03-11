@@ -10,6 +10,7 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
 from io import BytesIO
 #import plotly.io as pio
 from datetime import datetime
+from services.financial_graph_service import generate_breakeven_chart_image
 
 
 # ------------------------------------------------
@@ -248,8 +249,6 @@ def generate_pdf_report(state):
 
         elements.append(Paragraph("BREAK-EVEN ANALYSIS", heading_style))
 
-        from services.financial_graph_service import generate_breakeven_chart_image
-
         chart_bytes = generate_breakeven_chart_image(
             state.get("net_system_cost"),
             state.get("monthly_units") * 12 * 7
@@ -272,6 +271,7 @@ def generate_pdf_report(state):
         # chart_img = Image(chart_bytes, width=6*inch, height=3*inch)
 
         elements.append(chart_image)
+        elements.append(Spacer(1, 20))
 
     # ------------------------------------------------
     # System Benefits

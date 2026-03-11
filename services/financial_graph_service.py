@@ -1,6 +1,65 @@
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 from io import BytesIO
 
+
+# -----------------------------------------
+# Plotly Chart (for Streamlit UI)
+# -----------------------------------------
+
+def generate_breakeven_chart(system_cost, annual_bill):
+
+    years = list(range(0, 26))
+
+    without_solar = []
+    with_solar = []
+
+    electricity_inflation = 0.04
+    maintenance_rate = 0.01
+
+    cumulative_without = 0
+    cumulative_with = system_cost
+
+    for year in years:
+
+        if year == 0:
+            without_solar.append(0)
+            with_solar.append(system_cost)
+            continue
+
+        cumulative_without += annual_bill * ((1 + electricity_inflation) ** year)
+        cumulative_with += system_cost * maintenance_rate
+
+        without_solar.append(cumulative_without)
+        with_solar.append(cumulative_with)
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=years,
+        y=without_solar,
+        name="Without Solar"
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=years,
+        y=with_solar,
+        name="With Solar"
+    ))
+
+    fig.update_layout(
+        title="Solar Break-even Analysis",
+        xaxis_title="Years",
+        yaxis_title="Cumulative Cost (₹)",
+        template="plotly_white"
+    )
+
+    return fig
+
+
+# -----------------------------------------
+# Matplotlib Image (for PDF)
+# -----------------------------------------
 
 def generate_breakeven_chart_image(system_cost, annual_bill):
 
@@ -40,6 +99,7 @@ def generate_breakeven_chart_image(system_cost, annual_bill):
     ax.legend()
 
     img_buffer = BytesIO()
+
     plt.savefig(img_buffer, format="png", bbox_inches="tight")
     plt.close()
 
