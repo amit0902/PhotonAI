@@ -94,11 +94,7 @@ def generate_pdf_report(state):
     name = state.get("name", "Customer")
     city = state.get("city", "-")
     monthly_units = state.get("monthly_units", 0)
-<<<<<<< HEAD
-    annual_consumption = state.get("annual_consumption", 0)
-=======
     annual_consumption = state.get("annual_consumption", state.get("annual_kwh",0))
->>>>>>> 36c2420 (Modified version of PhotonAI)
 
     system_kw = state.get("system_kw", 0)
     annual_kwh = state.get("annual_kwh", 0)
@@ -190,9 +186,6 @@ def generate_pdf_report(state):
     # ------------------------------------------------
 
     elements.append(Paragraph("PROPOSED SOLAR SYSTEM DESIGN", heading_style))
-<<<<<<< HEAD
-
-=======
     if series and parallel:
         layout_text = f"{series} in series x {parallel} strings"
     else:
@@ -201,21 +194,14 @@ def generate_pdf_report(state):
         battery_text = f"{battery_name} ({battery_kwh} kWh)"
     else:
         battery_text = "Not included"
->>>>>>> 36c2420 (Modified version of PhotonAI)
     system_table = Table([
         ["System Capacity", f"{system_kw:.2f} kW"],
         ["Estimated Annual Generation", f"{annual_kwh:,.0f} kWh"],
         ["Panel Model", panel_name],
         ["Number of Panels", panel_count],
-<<<<<<< HEAD
-        ["Array Layout", f"{series} in series × {parallel} strings"],
-        ["Inverter", f"{inverter_name} ({inverter_kw:.1f} kW)"],
-        ["Battery Storage", f"{battery_name} ({battery_kwh} kWh)"]
-=======
         ["Array Layout", layout_text],
         ["Inverter", f"{inverter_name} ({inverter_kw:.1f} kW)"],
         ["Battery Storage", battery_text]
->>>>>>> 36c2420 (Modified version of PhotonAI)
     ])
 
     system_table.setStyle(TableStyle([

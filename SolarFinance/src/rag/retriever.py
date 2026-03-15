@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
-from utils.config import Config
+from src.utils.config import Config
 
 
 class PolicyRetriever:
