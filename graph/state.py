@@ -23,7 +23,7 @@ class SolarState(TypedDict, total=False):
     city: Optional[str]
     tilt: Optional[float]
     azimuth: Optional[float]
-    
+
     # Equipment Preferences
     panel_brand: Optional[str]
     inverter_brand: Optional[str]
@@ -69,13 +69,8 @@ class SolarState(TypedDict, total=False):
     # --------------------------------
     # PV Array Layout
     # --------------------------------
-<<<<<<< HEAD
-    series_strings: Optional[int]
-    parallel_strings: Optional[int]
-=======
     series: Optional[int]
     parallel: Optional[int]
->>>>>>> 36c2420 (Modified version of PhotonAI)
 
     # --------------------------------
     # Inverter
@@ -90,6 +85,9 @@ class SolarState(TypedDict, total=False):
     battery_kwh: Optional[float]
     battery_backup_hours: Optional[float]
 
+    # --------------------------------
+    # Financials
+    # --------------------------------
     system_cost: Optional[float]
     annual_savings: Optional[float]
     payback_years: Optional[float]
