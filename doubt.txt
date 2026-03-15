@@ -1,0 +1,10 @@
+Lets solve this issue later, we will two simple problems that still exist in code.
+1. When application begins and user provides name the assistant response in below manner:
+Hello there, nice to meet you. I'm a solar energy consultant with over a decade of experience helping homeowners and businesses transition to renewable energy. I've had the pleasure of working with clients in a variety of locations, understanding their unique needs and tailoring solutions to suit their energy requirements.
+
+Can I start by learning a bit more about you? May I ask your name?
+
+Amit
+
+Hi, nice to meet you! I'm Amit. I'm helping folks transition to solar energy, and I'm excited to explore options with you. Can you give me a rough idea of how much electricity your household typically uses in a month?
+2. The series and parallel count of PV Panels in PDF generated shows 0 also the battery name says included everytime. It should come according to mode of operation.
